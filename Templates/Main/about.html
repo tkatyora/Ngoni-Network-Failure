@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{%block content%}
+{%load static%}
+{% block title%}
+<head>
+   <meta name="Key Words" content="The About Nitacagra Softwares page">
+  <meta name="description" content="The history,coreValues vision and mission and also the Body of Nitacagra Softwares ">
+<title>NitacagraSoftwares | About Nitacagra Softwares</title>
+</head>
+{%endblock title%}
+    <section class="hero-about">
+      <!-- making slides -->
+     
+      <div class="history ">
+         <h1>OVERVIEW</h1>
+        <h4>HISTORY</h4>
+        {%for info in data%}
+        <p class="lead">
+           {{info.history}}
+        
+           
+        </p>
+      </div>
+      <div class="mission">
+        <h4>VISION AND MISSION</h4>
+        <p class="lead">
+          {{info.visionMision}}
+       
+        </p>
+      </div>
+      <div class="core-values">
+        <h4>CORE VALUES</h4>
+        {% comment %} <h5>Reliability</h5> {% endcomment %}
+        <p class="lead">
+         {{info.coreValues}}
+      </div>
+     
+      </div>
+      
+      <div class="board">
+        <h4>BOARD MANAGMENT</h4>
+          <div class="container text-start   services">
+            <div class="row  g-5">
+              <div class="col-4">
+                <img src="{% static '../../static/NITACACRAIMAGES/gracious.jpg'%}" class=" pic img-fluid" alt="Gracious Sakarombe">
+                <div class="p-4 border shadow bg-light">
+                  
+                  <div class="txt">
+                   
+                    <h4>Gracious R Sakarombe</h4>
+                    <p>
+                      Optic Fibre Enginner
+                    </p>
+                  
+                </div>
+              </div>
+            </div>
+              <div class="col-4">
+                <img src="{% static '../../static/NITACACRAIMAGES/gracious.jpg'%}"class=" pic img-fluid" alt="Nicole Gonyora">
+                <div class="p-4 border shadow bg-light">
+                  
+                  <div class="txt">
+                   
+                    <h4>Nicole Gonyora</h4>
+                    <p>
+                      Optic Fibre Enginner
+                    </p>
+                  
+                </div>
+              </div>
+            </div>
+              <div class="col-4">
+                <img src="{% static '../../static/NITACACRAIMAGES/carey.jpg'%}"class=" pic img-fluid" alt="Nicole Gonyora"> 
+                <div class="p-4 border shadow bg-light">
+                  
+                  <div class="txt">
+                   
+                    <h4>Carey Mukozora</h4>
+                    <p>
+                      Optic Fibre Enginner
+                    </p>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+               <img src="{% static '../../static/NITACACRAIMAGES/takudzwa.jpg'%}"class=" pic img-fluid" alt="Takudzwa Katyora">
+              <div class="p-4 border  shadow bg-light">
+                <div class="txt">
+                  <h4>Takudzwa P Katyora</h4>
+                  <p>
+                    Core Founder 
+                  </p>
+                </div>
+              </div>
+            </div>
+             {%endfor%}
+          </div>
+    </section>
+  </body>
+  {% endblock%}
+ 
