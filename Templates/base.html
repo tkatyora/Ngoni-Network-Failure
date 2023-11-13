@@ -42,11 +42,10 @@
                 ><i class="text-info fa-solid fa-house"></i>About</a
               >
            </div>
-
-           <a class="nav-link  text-white active login" href="{% url "sign_in" %}"
-           ><i class="fa-solid fa-circle-user"></i> Log In</a
-         >
           </div>
+          <a class="nav-link  text-white active login" href="{% url "sign_in" %}"
+          ><i class="fa-solid fa-circle-user"></i>| Log In</a
+        >
                 {%else%}
                
                
@@ -54,7 +53,7 @@
                 
          
        
-         <a href="" class="text-start nav-link a-tags .navs-link  "> <big><i class="fa-solid fa-circle-user"></i></big> {{user.email}}</a>
+         <a href="" class="text-start nav-link a-tags .navs-link  "> <big><i class="fa-solid text-info fa-circle-user"></i></big> {{user.email}}</a>
           <a class="nav-link login" href="{% url "logout" %}">| Log Out</a> 
                  {%endif%}
                 
@@ -64,7 +63,6 @@
  
     {% block content %}
       {% endblock content %}
-    <script src="{% static '../static/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'%}"></script>
     <script src="{% static '../static/css/node_modules/bootstrap/dist/js/bootstrap.bundle.js'%}"></script>
     <script src="{% static '../static/css/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'%}"></script>
     

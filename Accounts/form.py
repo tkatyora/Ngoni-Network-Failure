@@ -67,7 +67,7 @@ class CreateProfileForm(ModelForm):
     
     class Meta:
         model = Profile
-        fields = ['city','phoneNumber','gender','address']
+        fields = ['city','phoneNumber','gender','address','accountNumber']
    
 
 #SPECIFIC FORMS  

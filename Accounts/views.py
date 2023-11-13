@@ -11,9 +11,7 @@ from .form import *
 # Create your views here.
 AllProfile = Profile.objects.all()
 alluser = User.objects.all() 
-
-
-
+print(AllProfile)
 @unauthenticated_user
 def signin(request):
     if request.method == 'POST':
@@ -62,10 +60,10 @@ def signout(request):
 def profile(request):
     content ={}
     content ={
-        'profile':AllProfile,
+        'profiles':AllProfile,
         'users': alluser
     }
-    return render(request , 'profile.html',content)
+    return render(request , 'Accounts/profile.html',content)
 
 
 @login_required(login_url='sign_in') 

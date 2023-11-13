@@ -11,6 +11,7 @@ class Profile(models.Model):
         address = models.CharField(max_length=50, null= True,blank=True) 
         #profilePicture = models.ImageField(upload_to ='Pictures', blank=True ,null= True) 
         gender = models.CharField( max_length=50 , choices = Gender ,default='Not Seleted' ,null=True)
+        accountNumber = models.CharField(max_length=100,null=True)
 
         
     #SPECIFIC FIELDS

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     #MODULES 
     'main',
     'Accounts',
+    'portal'
 
     #SPECIFIC MODULES FOR THE APPLICATION
 ]

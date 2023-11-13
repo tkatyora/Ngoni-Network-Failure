@@ -1,0 +1,64 @@
+{% extends 'dashboard.html' %}
+ {% block content%} 
+ {% load static%}
+   {% block title%}
+<head>
+  <meta name="Key Words" content="Dashboard">
+  <meta name="description" content="Dashboard  to add and chage something om the profile">
+<title> |Profile</title>
+</head>
+{%endblock title%}
+<body>
+  <main class="col-md-9 col-lg-10 align-content-center px-md-4"
+      style="width: 75%">
+      <section class="text-start my-2 mx-sm-5">
+            <span class="text-center ">
+                <h3>My Profile</h1>
+            </span>
+            <h4 class="lead heading text-danger">NB: Please Update Your Prolile  </h4>
+           {% for profile in profiles%}
+           {{profile}}
+            <h2 class="lead mt-3 text-info">Welcome <strong>
+              {% if data.gender == 'male'%} Mr {% elif data.gender == 'female' %}  Miss {% else %}{% endif %}
+              {{data.user.first_name.title}} 
+              Mr {{user.last_name.title}}</strong> Below is Your Personal and Account  Information</h2>
+            
+                <div class="row container align-content-between  p-4 g-5">
+                  <div class="col-6  shadow">
+                    <h2 class="h4 mt-3 ">Personal Information</h2>
+                    <hr>
+                    <p>{{data}}</p>
+                    <p class="lead">Account Owner : {{user.first_name.title}}  {{user.last_name.title}} </p>
+                      <p class="lead">Email : {{data.user.email}}</p>
+                      <p class="lead">Addrees  : {{data.address}}</p>
+                      <p class="lead">City : {{data.city}}</p>
+                      <p class="lead">Gender :{{data.gender}}</p>
+                      <p class="lead">PhoneNumber : {{data.phoneNumber}}</p>
+                      <p></p>
+                  </div>
+                  <div class="col-6  shadow ">
+                    <h2 class="h4 mt-3 ">Account Information</h2>
+                    <hr>
+                      <p class="lead">Username : {{data.user.username}}</p>
+                      <p class="lead">Account Number: {{data.accountNumber}}</p>
+                      <p class="lead">Password :To be Displayed</p>
+                      <p class="lead">Role
+                      {% if data.isFarmer %}: Farmer {% elif data.isadmin%} : Admin {% elif data.isGeneralUser %}
+                      : General User</p>{% endif %}
+                      <p class="lead">Last LogIn :{{data.user.last_login}}</p>
+                      <p class="lead">Date Joined :{{data.user.date_joined}}</p>
+                  </div>
+                </div>
+                {%endfor%}   
+          <div class="text-center button-user">
+            <button type="submit" class="btn mt-3 btn-secondary  button mb-4">
+              <a class href="{% url 'dashboard'%}">Back</a>
+            </button>
+          </div>
+     </section>
+
+  </main>
+
+</body>
+
+  {% endblock content%}
