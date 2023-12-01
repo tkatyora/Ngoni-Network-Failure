@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import *
-from Accounts.decorators import unauthenticated_user
+from account.decorators import unauthenticated_user
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required ,permission_required
 from django.contrib.auth.models import User

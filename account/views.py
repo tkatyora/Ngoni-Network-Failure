@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required ,permission_required
-from Accounts.models import *
+from account.models import *
 from django.contrib.auth.models import User
 from .decorators import unauthenticated_user
 from django.contrib.auth import authenticate,login,logout
@@ -9,7 +9,7 @@ from .form import *
 
 #DJANGO MODULES
 # Create your views here.
-AllProfile = Profile.objects.all()
+AllProfile = NetworkProfile.objects.all()
 alluser = User.objects.all() 
 print(AllProfile)
 @unauthenticated_user
