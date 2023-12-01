@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     # "crispy_bootstrap5",
     #MODULES 
     'main',
-    'Accounts',
-    'portal'
+    'portal',
+    'account',
 
     #SPECIFIC MODULES FOR THE APPLICATION
 ]

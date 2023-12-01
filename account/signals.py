@@ -21,24 +21,12 @@ print(accountNum)
 @receiver(post_save, sender=User)
 def create_profile(sender,instance,created,*args,**kwargs):
     if created:
-        # group = Group.objects.get('Farmers')
-        # instance.group.add(group)
-        profile = Profile.objects.create(
+        profile = NetworkProfile.objects.create(
             user=instance,
             accountNumber= accountNum   
         )
         profile.save
 
-@receiver(post_save, sender=Profile)
-def create_profile(sender,instance,created,*args,**kwargs):
-    if created:
-        # group = Group.objects.get('Farmers')
-        # instance.group.add(group)
-        networkprofile = NetworkProfile.objects.create(
-            profile=instance,
-               
-        )
-        profile.save
 
         
         

@@ -65,7 +65,7 @@ class CreateProfileForm(ModelForm):
    
     
     class Meta:
-        model = Profile
+        model = NetworkProfile
         fields = ['city','phoneNumber','address','accountNumber']
    
 
