@@ -10,16 +10,16 @@ from django.contrib.auth import login,logout,authenticate
 
 # collecting The Data from Database
 
-# first_slide = home.objects.first()
-# second_slide = home.objects.all()[1:1]
-# last_slide = home.objects.last()
+first_slide = home.objects.first()
+second_slide = home.objects.all()[1]
+last_slide = home.objects.last()
 @unauthenticated_user
 def home(request):
     content ={}
     content ={
-        # 'second_slide' : second_slide,
-        # 'first_slide': first_slide,
-        # 'last_slide': last_slide,
+        'second_slide' : second_slide,
+        'first_slide': first_slide,
+        'last_slide': last_slide,
     }
     return render(request , 'Main/index.html' , content)
 

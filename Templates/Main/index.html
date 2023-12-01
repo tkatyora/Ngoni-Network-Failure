@@ -5,7 +5,7 @@
     name="description"
     content="company key words"
   />
-  <title>Company <Title></Title></title>
+  <title>Telone |Home </title>
 </head>
 {%endblock title%}
  <!-- begining of the slides on the home page -->
@@ -36,24 +36,23 @@
       </div>
       <div class="carousel-inner">
          <!-- slide 1 -->
-        <div class="carousel-item  active" >
+        <div class="carousel-item  active" data-bs-interval="5000">
           <img
-            src="{{first_slide.ImageUrl}}"
+            src="{{last_slide.ImageUrl}}"
             class="img-fluid d-block w-100"
             alt="For Projects Guides"
           />
           <div class="container">
             <div class="carousel-caption text-start">
 
-              <h1 class="header-blue">{{first_slide.name}}</h1>
+              <h1 class="header-blue">The Future</h1>
               
-            <p><a id='home' class="btn btn-lg btn-info" href="#">{{first_slide.name}}</a></p>
-            
+           
             </div>
           </div>
         </div>
          <!-- slide 2 -->
-         <div class="carousel-item" data-bs-interval="8000">
+         <div class="carousel-item" data-bs-interval="5000">
           <img
             src="{{second_slide.ImageUrl}}"
             class="img-fluid d-block w-100"
@@ -62,15 +61,14 @@
           <div class="container">
             <div class="carousel-caption">
                
-              <p class="fs-4" ></p>
-            <p><a id='home' class="btn btn-lg btn-info" href="#">{{second_slide.name}}</a></p>
+              
             </div>
           </div>
         </div> 
         <!-- slide 3 -->
-         <div class="carousel-item" data-bs-interval="9000">
+         <div class="carousel-item" data-bs-interval="5000">
           <img
-           src="{{last_slide.ImageUrl}}"
+           src="{{first_slide.ImageUrl}}"
             class="img-fluid d-block w-100"
             alt="The spider web representing  website"
           />
@@ -78,7 +76,7 @@
           <div class="container">
             <div class="carousel-caption text-end">
               <p class="fs-4" ></p>
-            <p><a id='home' class="btn btn-lg btn-info" href="#">{{last_slide.name}}</a></p>
+            <p><a id='home' class="btn btn-lg btn-info" href="#"></a></p>
             </div>
           </div>
         </div> 
@@ -112,5 +110,5 @@
   </section>
  
 </main>
-<script src=" {% static '../../static/JS/home.js'%}"></script>
+
 {%endblock content%}

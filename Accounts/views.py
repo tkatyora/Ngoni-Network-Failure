@@ -23,7 +23,7 @@ def signin(request):
             messages.success(request, 'Log  Successfully')
             return redirect('dashboard') 
         else:
-            messages.warning(request, 'Invalid Username and  Paasword')
+            messages.warning(request, 'Invalid Username or  Paasword')
             return redirect('sign_in')
                       
     return render(request, 'Accounts/Usernamelogin.html' )

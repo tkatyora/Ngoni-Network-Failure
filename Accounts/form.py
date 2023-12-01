@@ -2,7 +2,7 @@ from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Profile
+from .models import *
 
 #MODULES FORMS
 class CreateUserForm(UserCreationForm):
@@ -61,13 +61,12 @@ class CreateProfileForm(ModelForm):
                                        'type':'text'
                                   }))
     phoneNumber=forms.IntegerField( label='Enter Phone Number', required=True,                                )
-    gender = forms.ChoiceField(label='Select Gender',choices= Profile.Gender, required=False,widget=forms.RadioSelect())
     address = forms.CharField(label='Enter Address', required=False)
    
     
     class Meta:
         model = Profile
-        fields = ['city','phoneNumber','gender','address','accountNumber']
+        fields = ['city','phoneNumber','address','accountNumber']
    
 
 #SPECIFIC FORMS  

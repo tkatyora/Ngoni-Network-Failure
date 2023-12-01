@@ -1,6 +1,6 @@
 from django.contrib.auth.models import Group ,User
 from django.db.models.signals import post_save
-from .models import Profile
+from .models import *
 import random
 import string
 from . import views
@@ -26,6 +26,17 @@ def create_profile(sender,instance,created,*args,**kwargs):
         profile = Profile.objects.create(
             user=instance,
             accountNumber= accountNum   
+        )
+        profile.save
+
+@receiver(post_save, sender=Profile)
+def create_profile(sender,instance,created,*args,**kwargs):
+    if created:
+        # group = Group.objects.get('Farmers')
+        # instance.group.add(group)
+        networkprofile = NetworkProfile.objects.create(
+            profile=instance,
+               
         )
         profile.save
 

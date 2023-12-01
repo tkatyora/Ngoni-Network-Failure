@@ -1,34 +1,26 @@
 {% include 'style.html'%}
 {%load static %}
 
+
   <body>
     <!-- the navbar -->
     <header
-      class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-1   shadow">
+      class="navbar  navbar-dark sticky-top bg-dark flex-md-nowrap p-1  shadow">
       <a href="" 
               class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-5">
-          Company  <span class="text-info">Name</span></a > 
+          TelOne<span class="text-info">NMS</span></a > 
       <button
-        class="navbar-toggler position-absolute d-md-none collapsed"
+        class="navbar-toggler position-absolute d-md-none "
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#sidebarMenu"
         aria-controls="sidebarMenu"
-        aria-expanded="false"
+        aria-expanded="true"
         aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
-       <p class="lead  h6 text-white">You have <span>No</span> Notifications <i class="fa fa-bell text-info" aria-hidden="true"></i>
-   <!--    {% for dataa in E36%}
-         {% if data.Status == 'Completed'%} -->
-        
-         <!-- {%else%}
-            <span></span> Notifications! <i class="fa fa-bell text-danger" aria-hidden="true"></i>
-          {%endif%}
-      {%endfor%} -->
-
+       <p class="lead  h6 text-white">Good Day {{user.username}} You have <span>No</span> Notifications <i class="fa fa-bell text-info" aria-hidden="true"></i>
         </p>
        
      <div class="dropdown me-4">
@@ -39,23 +31,22 @@
                 aria-expanded="false"
               >
                 <img
-               
-                  src="{% static '../static/css/node_modules/bootstrap/dist/js/TK.jpg'%}"
-                 
+                  src=" {% static '../static/Images/Capture.PNG'%}"
                   alt="profilepicture"
                   width="32"
                   height="32"
                   class="rounded-circle me-2"
-                />{%if user.email == 'None'%} 
-                <strong class="text-white">youremail@gmail.com</strong>
-                {%else%} 
+                /> 
                 <strong class="text-white">{{user.email}}</strong>
-                {%endif%} 
               </a>
               <ul class="dropdown-menu text-end dropdown-menu-dark text-small shadow">
+                <li><a class="dropdown-item" href="#">Settings</a></li>
                 <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><a class="dropdown-item" href="#">Delete Account</a></li>
-                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="https://mail.telone.co.zw/owa/auth/logon.aspx?replaceCurrent=1&reason=2&url=https%3a%2f%2fmail.telone.co.zw%2fowa%2f" target="_blank" rel="noopener noreferrer">OutLook Inbox </a></li>
+                {% if user.is_superuser%}
+                <li><a class="dropdown-item" href="http://127.0.0.1:8000/admin/">SuperUser Dashboard</a></li>
+                {%endif%}
+                
                 <li><a class="dropdown-item" href="{% url 'logout' %}">Log out</a></li>
               </ul>
             </div>
@@ -66,18 +57,81 @@
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light shadow  sidebar collapse" style='width: 25%'>
       <div class="position-sticky pt-3 sidebar-sticky">
         <br>
-        <a class="nav-link h5 text-black" href="{% url 'dashboard' %}">
-             Main Dashboard
-            </a>
+        <a class="h4 ms-3 text-center mt-5 text-black text-decoration-none" href="{% url 'dashboard' %}">
+          Main Dashboard
+         </a>
             <hr>
-            <a class="nav-link h5 text-success" href="">
-            
-            </a>
-            <a class="nav-link h5 text-warning" href="">
+            <span class="h4 ms-3 text-center mt-5 text-black fs-italic">Network Information</span>
            
-            </a>
+            <ul class="nav flex-column">
+              <li class="nav-item ">
+                <a class="nav-link " href="https://www.google.com/maps/@-18.9884743,32.6390483,15z?entry=ttu" target="_blank" rel="noopener noreferrer">
+                 Network Perfomance
+                 </a>
+                 <a class="nav-link " href="https://docs.google.com/spreadsheets/d/10Sn2sktMi2h3AAVZEQxKjZ0aTvrGIWslI8G_AfQADmo/edit#gid=150340438"  target="_blank" rel="noopener noreferrer">
+                 Network Failure Predictions
+                 </a> 
+                 <a class="nav-link " href="https://docs.google.com/spreadsheets/d/10Sn2sktMi2h3AAVZEQxKjZ0aTvrGIWslI8G_AfQADmo/edit#gid=526017449"  target="_blank" rel="noopener noreferrer">
+                  Network Information
+                 </a> 
+                
+              </li>
+            </ul>
             <hr>
-        
+        <span class="h4 ms-3 text-center mt-5 text-black fs-italic">Recomendations</span>
+        <ul class="nav flex-column">
+          <li class="nav-item ">
+            
+              <span data-feather="file" class="align-text-bottom"></span>
+             View All Recomandations
+            </a> 
+          </li>
+        </ul>
+        <hr>
+        <span class="h4 ms-3 text-center mt-5 text-black fs-italic">Feedback and Complains</span>
+           
+            <ul class="nav flex-column">
+              <li class="nav-item ">
+                <a class="nav-link " href="https://docs.google.com/spreadsheets/d/10Sn2sktMi2h3AAVZEQxKjZ0aTvrGIWslI8G_AfQADmo/edit#gid=1469839642" target="_blank" rel="noopener noreferrer">
+                  Add Complain
+                 </a>
+                 <a class="nav-link " href="https://docs.google.com/spreadsheets/d/10Sn2sktMi2h3AAVZEQxKjZ0aTvrGIWslI8G_AfQADmo/edit#gid=150340438"  target="_blank" rel="noopener noreferrer">
+                  Contact list
+                 </a> 
+                 <a class="nav-link " href="https://docs.google.com/spreadsheets/d/10Sn2sktMi2h3AAVZEQxKjZ0aTvrGIWslI8G_AfQADmo/edit#gid=526017449"  target="_blank" rel="noopener noreferrer">
+                  Add Feedback
+                 </a> 
+                
+              </li>
+            </ul>
+            <hr>
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+          <span>Customers</span>
+          <a class="link-secondary" href="#" aria-label="Add a new report">
+            <span data-feather="plus-circle" class="align-text-bottom"></span>
+          </a>
+        </h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file-text" class="align-text-bottom"></span>
+             View All customers
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file-text" class="align-text-bottom"></span>
+            View Complains
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file-text" class="align-text-bottom"></span>
+            View Feedback
+            </a>
+          </li>
+        </ul>
+        <hr>
         <span class="h4 ms-3 text-center mt-5 text-black fs-italic">My Profile</span>
         <ul class="nav flex-column">
           <li class="nav-item ">
@@ -103,10 +157,7 @@
     </nav>
      
     {% block content %} {% endblock content %}
-    <!-- config of javascript scripts -->
-    <script src="{% static '../static/css/node_modules/bootstrap/dist/js/bootstrap.bundle.js'%}"></script>
-    <script src="{% static '../static/css/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'%}"></script>
-    <script src="{% static '../static/css/node_modules/bootstrap/dist/js/bootstrap.js'%}"></script>
+    <script src="{% static '../static/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'%}"></script>
   </body>
 <br>
 <footer class="py-5 bg-dark text-dark mt-0"> 

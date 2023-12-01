@@ -6,4 +6,4 @@ def dashboard(request):
     content ={
    
     }  
-    return render(request , 'Portal/Maindashboard.html',content)
+    return render(request , 'Portal/mainDashboard.html',content)

@@ -7,10 +7,10 @@
       <nav
         class="navbar navbar-expand-sm navbar-dark shadow bg-dark rounded fixed-top "
       >
-        <div class="container-fluid text-ends">
-          <a href="{% url 'home' %}" class="navbar-brand ms-4 ">
-            COMPANY  <span class="sub-logo">NAME</span></a
-          >
+        <div class="container-fluid ms-5 me-5">
+          <a href="{% url 'home' %}" class="navbar-brand fs-5 ms-4 ">
+            Tel<span class="text-primary fs-4 h2">O</span>ne</a
+           >
           <button
             class="navbar-toggler"
             type="button"
@@ -23,7 +23,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div
-            class="collapse navbar-links navbar-collapse"
+            class="collapse navbar-links navbar-collapse ms-5 w-25 me-5"
             id="navbarCollapse"
           >
             {%if not user.is_authenticated%}
@@ -36,16 +36,18 @@
                 ><i class="text-info fa-solid fa-house"></i> Home</a
               >
               <a
-                class="nav-link fs-6 active navs-link"
+                class="nav-link fs-6 ms-2 active navs-link"
                 aria-current="page"
-                 href="{% url "about" %}"
-                ><i class="text-info fa-solid fa-house"></i>About</a
+                 href="{% url "home" %}"
+                ><i class="text-info fa-solid fa-question"></i>About</a
               >
            </div>
           </div>
-          <a class="nav-link  text-white active login" href="{% url "sign_in" %}"
-          ><i class="fa-solid fa-circle-user"></i>| Log In</a
-        >
+  
+              <a class="nav-link  text-white active login" href="{% url "sign_in" %}"
+              ><i class="fa-solid fa-circle-user"></i> Log In</a
+            >
+             
                 {%else%}
                
                
@@ -53,7 +55,7 @@
                 
          
        
-         <a href="" class="text-start nav-link a-tags .navs-link  "> <big><i class="fa-solid text-info fa-circle-user"></i></big> {{user.email}}</a>
+         <a href="" class="text-start nav-link a-tags .navs-link  "> <i class="fa-solid fa-circle-user"></i> {{user.email}}</a>
           <a class="nav-link login" href="{% url "logout" %}">| Log Out</a> 
                  {%endif%}
                 
@@ -63,8 +65,7 @@
  
     {% block content %}
       {% endblock content %}
-    <script src="{% static '../static/css/node_modules/bootstrap/dist/js/bootstrap.bundle.js'%}"></script>
-    <script src="{% static '../static/css/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static '../static/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'%}"></script>
     
   </body>
    
@@ -73,48 +74,38 @@
           <div class="row center">
               <div class="col-6 col-md-2 mb-3">
                   <h5 class="text-white">Section</h5>
-                  <ul class="nav flex-column">
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Services</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Blog</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                  <ul class="nav flex-column ">
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0  text-secondary ">Home</a></li>
+
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0  text-secondary ">About</a></li>
                   </ul>
               </div> 
               <div class="col-6 col-md-2 mb-3"> 
                   <h5  class="text-white">Get In Touch</h5> <hr>
-                  <ul class="nav flex-column">
+                  <ul class="nav flex-column text-secondary">
                   <!-- <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Email :</a></li> -->
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Email :<strong>tnctelecomms@gmail.com</strong></a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted"><i class="facebook fa-solid fa-phone"></i> 0773 735 227</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted"><i class="fa-brands Whatsapp fa-whatsapp"></i> 071 303 7757</a></li>
+                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0  text-secondary "><strong>customer.service@telone.co.zw</strong></a></li>
+                 
                   </ul>
               </div> 
               <div class="col-6 col-md-2  mb-3">
                   <div class="text-end">
                   <h5 class="text-white">Address</h5> <hr>
-                  <ul class="nav flex-column ">
-                  <li class="nav-item mb-2">Southlea Park WaterFalls</li>
+                  <ul class="nav flex-column text-secondary">
+                  <li class="nav-item mb-2">Runhare House</li>
                     <li class="nav-item mb-2">Harare</li>
                   </ul>
               </div>
           </div> 
               <div class="col-6 col-md-2 mb-3">
-                  <h5  class="header-blue">Follow Us</h5> <hr>
-                  <ul class="nav flex-column">
-                  <li class="nav-item mb-2"><a href="https://www.instagram.com/" class="nav-link p-0 text-muted"><i class="fa-brands  a-tags fa-instagram"></i> Instagram</a></li>
-                  <li class="nav-item mb-2"><a href="https://twitter.com/home"  class="nav-link p-0 text-muted"> <i class="fa-brands facebook fa-twitter"></i> Twitter</a></li>
-                  <li class="nav-item mb-2"><a href="https://www.facebook.com/" class="nav-link p-0 text-muted"> <i class="fa-brands facebook a-tags fa-facebook"></i> Facebook</a></li>
+                  <h5  class="text-white">Follow Us</h5> <hr>
+                  <ul class="nav flex-column text-secondary">
+                  <li class="nav-item mb-2  text-info"><a href="https://www.instagram.com/" class="nav-link p-0  text-secondary "><i class="fa-brands  a-tags fa-instagram"></i> Instagram</a></li>
+                  <li class="nav-item mb-2"><a href="https://twitter.com/home"  class="nav-link p-0  text-secondary "> <i class="fa-brands facebook fa-twitter"></i> Twitter</a></li>
+                  <li class="nav-item mb-2"><a href="https://www.facebook.com/" class="nav-link p-0  text-secondary"> <i class="fa-brands facebook a-tags fa-facebook"></i> Facebook</a></li>
                   </ul>
               </div>
-              <div class="col-md-5 offset-md-0 mb-3 ">
-                {% comment %} <form class="comment">
-                    <h5>Leave a comment</h5>
-                    <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                        <input type="text" class="form-control" placeholder="Write Your Comment">
-                        <button  id ='comment'class="btn btn-outline-info" type="button">Submit</button>
-                    </div>
-                </form> {% endcomment %}
-              </div> 
+              
           </div> 
            
     </div> 
@@ -122,10 +113,10 @@
       <p> Develped by NITACAGRA SOFTWARES</p>
         <p>&copy; <span id="time">2023</span> Company, Inc. All rights reserved.</p>
         <ul class="list-unstyled d-flex">
-          <li class="ms-3"><a class="link-light a-tags" href="https://twitter.com/home"> <i class="fa-brands facebook fa-twitter"></i> Twitter</a></li>
-          <li class="ms-3"><a class="link-light  a-tags" href="https://www.instagram.com/"><i class="fa-brands  a-tags fa-instagram"></i> Instagram</a></li>
-          <li class="ms-3"><a class="link-light  a-tags" href="https://www.facebook.com/"><i class="fa-brands facebook a-tags fa-facebook"></i> Facebook</a></li>
-          <li class="ms-3"><a class="link-light  a-tags" href="https://www.facebook.com/"><i class="fa-brands facebok a-tags fa-linkedin"></i> LinkedIn</a></li>
+          <li class="ms-3"><a class="link-light text-decoration-none " href="https://twitter.com/home"> <i class="fa-brands facebook fa-twitter"></i> Twitter</a></li>
+          <li class="ms-3"><a class="link-light  text-decoration-none" href="https://www.instagram.com/"><i class="fa-brands  a-tags fa-instagram"></i> Instagram</a></li>
+          <li class="ms-3"><a class="link-light  text-decoration-none" href="https://www.facebook.com/"><i class="fa-brands facebook a-tags fa-facebook"></i> Facebook</a></li>
+          <li class="ms-3"><a class="link-light text-decoration-none" href="https://www.facebook.com/"><i class="fa-brands facebok a-tags fa-linkedin"></i> LinkedIn</a></li>
         </ul> 
       </div> 
     

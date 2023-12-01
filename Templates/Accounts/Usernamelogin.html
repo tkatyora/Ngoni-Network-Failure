@@ -18,8 +18,8 @@
           <div class="mb-3  form"> 
             <div class="error-class">
               <br>
-              <h4 class="login mx-sm-5  text-center ">Project Title</h4>
-              <h6 class="login mx-sm-5 text-info   text-center ">Company Infomation <span class="text-warning"></span> </h3>
+              <h4 class="login mx-sm-5  text-center ">Tel<span class="text-primary fs-2 h2">O</span>ne</h4>
+              <h6 class="login mx-sm-5 text-info   text-center ">Network Managemnt System <span class="text-warning">NMS</span> </h3>
             {% for message in messages %}
               {% if message.tags == 'warning'%}
                 <div class="  mx-sm-3 ">
@@ -45,7 +45,7 @@
           <div class="mb-3 mx-sm-5 form">
             <label for="password" class="form-label"> Enter Password</label>
             <input
-              type="text"
+              type="password"
               name="password"
               class="form-control input"
               id='passowrd'
@@ -58,12 +58,7 @@
               class="form-check-input input"
               id="exampleCheck1"
             />
-            <div class="d-flex-inline">
-              <input type="radio" class="form-check-input input" id="remember" />
-             <label class="form-check-label" for="remember"
-              >Remember me next time</label>
-              <a class="nav-link navs-link " href="{% url 'sign_up' %}">Create New Account</a>
-            </div>
+            
           </div>
           <div class="text-center">
             <button type="submit" class="btn mb-4 w-50 btn-info button">
