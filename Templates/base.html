@@ -43,9 +43,12 @@
               >
            </div>
           </div>
-  
-              <a class="nav-link  text-white active login" href="{% url "sign_in" %}"
-              ><i class="fa-solid fa-circle-user"></i> Log In</a
+            <a class="nav-link  text-info active me-3 " href="{% url "create_account" %}"
+              ><i class="fa-solid fa-circle-user"></i>Register</a
+            >
+             
+              <a class="nav-link  text-warning active " href="{% url "sign_in" %}"
+              ><i class="fa-solid fa-circle-user"></i>Log In</a
             >
              
                 {%else%}

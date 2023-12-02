@@ -30,19 +30,40 @@ def signin(request):
 
 
 login_required(login_url='sign_in')
-def newClient(request):
+def RegesterClient(request):
     if request.method == 'POST':
         userForm = CreateUserForm(request.POST)
-        NetworkForm = NetworkProfileForm(request.POST)
         if userForm.is_valid():
-            user = userForm.save(commit=False)
+            client = userForm.save(commit=False)
             name = userForm.cleaned_data.get('fisrt_name')
-            Companyusername = name+'@tel1'
-            alluser.username = Companyusername
-            alluser.save()
-            if NetworkForm.is_valid():
-                NetworkForm.save()
-            username = userForm.cleaned_data.get('username')
+            print(name)
+            print(str(name))
+            Companyusername = str(name)+'@tel1'
+            client.username = Companyusername
+            client.save()
+            message = 'Account for',{Companyusername},'have been succesfully created'
+            messages.success(request,message )
+            login(request, client)
+            return redirect('dashboard')
+        else:
+            messages.warning(request,'User Form Is Not Valid' )
+            return redirect('create_account')           
+    else:
+        userForm = CreateUserForm()  
+    content={}
+    content = {
+        'CompanyForm' : userForm 
+    }
+    return render(request, 'Accounts/regester.html' , content)
+
+
+login_required(login_url='sign_in')
+def newClient(request):
+    if request.method == 'POST':
+        NetworkForm = NetworkProfileForm(request.POST)
+        if NetworkForm.is_valid():
+            NetworkForm.save()
+            
             message = 'Account for',{username},'have been succesfully created'
             messages.success(request,message )
             login(request, user)
@@ -51,12 +72,12 @@ def newClient(request):
             messages.warning(request,'User Form Is Not Valid' )
             return redirect('create_client')           
     else:
-        userForm = CreateUserForm(),
+       
         NetworkForm = NetworkProfileForm()
         
     content={}
     content = {
-        'CompanyForm' : userForm , 
+        
         'networkForm': NetworkForm}
     return render(request, 'Accounts/ClientRegistration.html' , content)
 

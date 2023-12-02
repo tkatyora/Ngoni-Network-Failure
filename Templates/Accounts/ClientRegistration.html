@@ -23,20 +23,7 @@
       <h5 class="text-center">Register New Client </h5>
     </div> 
     <br />
-    <div class=" text-start mx-sm-5">
-      <h5>Company Information</h3>
-       <p class="lead mt-3">
-        <strong>{{networkForm.IPAddress|as_crispy_field}}</strong> 
-      </p>
-       <p class="lead mt-3">
-        <strong>{{networkForm.IPAddress|as_crispy_field}}</strong>  
-      </p>
-      
-       <p class="lead mt-3">
-        <strong>{{networkForm.IPAddress|as_crispy_field}}</strong> 
-      </p>
-      <br />
-    </div>
+   
   </br>
   <div class=" text-start mx-sm-5">
     <h5>Network Infromation</h5>
@@ -52,6 +39,12 @@
    </p>
    <p class="lead mt-3">
     <strong>{{networkForm.Service|as_crispy_field}}</strong> 
+  </p>
+  <p class="lead mt-3">
+    <strong>{{networkForm.customer|as_crispy_field}}</strong> 
+  </p>
+  <p class="lead mt-3">
+    <strong>{{networkForm.networkAdmin|as_crispy_field}}</strong> 
   </p>
    <br />
  </div>

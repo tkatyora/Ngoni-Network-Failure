@@ -16,6 +16,13 @@
       <br>
        
     <div class="mt-5 ">
+      {% for message in messages %}
+              {% if message.tags == 'success'%}
+                <div class="  mx-sm-3 ">
+                  <p class="bg-success text-center">{{message}}</p>
+                </div>
+              {%endif%} 
+              {%endfor%}
       <h3 class="text-center lead fs-3">Welcome <span class="h3">{{user.first_name.title}} </span> <span  class="h3">{{user.last_name.title}} </span> To <br> <span class="text-info">System</span> <span class="text-warning">Name</span> </h3>
       <br>
        <br>
