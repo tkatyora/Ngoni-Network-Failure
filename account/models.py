@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User,AbstractUser
+from django.db.models import Q
 
 class NetworkProfile(models.Model):
     #MODULES FILEDS
@@ -18,6 +19,13 @@ class NetworkProfile(models.Model):
         Service =models.CharField(max_length=100,null= True,blank=False,choices=service)
         profilePicture = models.ImageField(upload_to ='Pictures', blank=True ,null= True) 
 
+        class Meta:
+              constraints = [
+                    models.CheckConstraint(
+                          check=Q(networkAdmin = True ,customer = False ) | Q(networkAdmin = False ,customer = True ),
+                          name= 'one_true_one_false',
+                    )
+              ]
         @property
         def ImageUrl(self):
             try:

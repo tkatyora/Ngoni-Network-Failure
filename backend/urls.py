@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #Modules Url
     path('',include("main.urls")),
-    # path('Accounts/',include("Accounts.urls")),
+    path('Accounts/',include("account.urls")),
     path('dashboard/',include('portal.urls'))
 
     #Specific Urls

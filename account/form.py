@@ -51,7 +51,7 @@ class CreateUserForm(UserCreationForm):
         
         
         
-class CreateProfileForm(ModelForm):
+class NetworkProfileForm(ModelForm):
     city = forms.CharField(required=True , label='Enter City', 
                             widget=forms.TextInput(
                                   attrs={
@@ -62,11 +62,33 @@ class CreateProfileForm(ModelForm):
                                   }))
     phoneNumber=forms.IntegerField( label='Enter Phone Number', required=True,                                )
     address = forms.CharField(label='Enter Address', required=False)
+    networkAdmin = forms.BooleanField(label='Is Admin',required=True)
+    customer = forms.BooleanField(required=True,label='Is customer ')
+    capacity = forms.CharField(required=True , label='Enter Network Capacity', 
+                            widget=forms.TextInput(
+                                  attrs={
+                                      
+                                      'class':'form-control input',
+                                       'spellcheck':"true",
+                                       'type':'text'
+                                  }))
+    IPAddress = forms.CharField(required=True , label='Enter Network IP', 
+                            widget=forms.TextInput(
+                                  attrs={
+                                      
+                                      'class':'form-control input',
+                                       'spellcheck':"true",
+                                       'type':'text'
+                                  }))
+    Network = forms.ChoiceField(required=True,choices=NetworkProfile.network)
+    Service = forms.ChoiceField(required=True,choices=NetworkProfile.service)
+    profilePicture = forms.ImageField( required=False) 
    
     
     class Meta:
         model = NetworkProfile
-        fields = ['city','phoneNumber','address','accountNumber']
+        fields = ['city','phoneNumber','address','accountNumber','profilePicture','Service','Network',
+                  'IPAddress','capacity','customer','networkAdmin']
    
 
 #SPECIFIC FORMS  

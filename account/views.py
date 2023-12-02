@@ -27,12 +27,21 @@ def signin(request):
             return redirect('sign_in')
                       
     return render(request, 'Accounts/Usernamelogin.html' )
-@unauthenticated_user
-def signup(request):
+
+
+login_required(login_url='sign_in')
+def newClient(request):
     if request.method == 'POST':
         userForm = CreateUserForm(request.POST)
+        NetworkForm = NetworkProfileForm(request.POST)
         if userForm.is_valid():
-            user = userForm.save()
+            user = userForm.save(commit=False)
+            name = userForm.cleaned_data.get('fisrt_name')
+            Companyusername = name+'@tel1'
+            alluser.username = Companyusername
+            alluser.save()
+            if NetworkForm.is_valid():
+                NetworkForm.save()
             username = userForm.cleaned_data.get('username')
             message = 'Account for',{username},'have been succesfully created'
             messages.success(request,message )
@@ -40,14 +49,16 @@ def signup(request):
             return redirect('dashboard')
         else:
             messages.warning(request,'User Form Is Not Valid' )
-            return redirect('sign_up')           
+            return redirect('create_client')           
     else:
-        userForm = CreateUserForm()
+        userForm = CreateUserForm(),
+        NetworkForm = NetworkProfileForm()
         
     content={}
     content = {
-        'form' : userForm , }
-    return render(request, 'Accounts/Usernameregester.html' , content)
+        'CompanyForm' : userForm , 
+        'networkForm': NetworkForm}
+    return render(request, 'Accounts/ClientRegistration.html' , content)
 
 
 @login_required(login_url='sign_in') 
