@@ -72,10 +72,10 @@
             </h6>
             <ul class="nav flex-column">
               <li class="nav-item ">
-                <a class="nav-link " href="https://www.google.com/maps/@-18.9884743,32.6390483,15z?entry=ttu" target="_blank" rel="noopener noreferrer">
+                <a class="nav-link " href="" >
                  Network Perfomance
                  </a>
-                 <a class="nav-link " href="https://docs.google.com/spreadsheets/d/10Sn2sktMi2h3AAVZEQxKjZ0aTvrGIWslI8G_AfQADmo/edit#gid=150340438"  target="_blank" rel="noopener noreferrer">
+                 <a class="nav-link " href="{% url 'Prediction' %}"  >
                  Network Failure Predictions
                  </a> 
               </li>
@@ -174,8 +174,10 @@
             <a class="nav-link " href="">
               <span data-feather="file" class=" text-black align-text-bottom"></span>
             Change Password
-            </a>        
+            </a>  
+            <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>      
           </li>
+          
         </ul>
         {%endif%}
         {%endif%}

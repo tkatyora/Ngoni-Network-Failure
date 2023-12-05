@@ -29,7 +29,8 @@ def signin(request):
     return render(request, 'Accounts/Usernamelogin.html' )
 
 
-login_required(login_url='sign_in')
+@unauthenticated_user
+#Account Creation
 def RegesterClient(request):
     if request.method == 'POST':
         userForm = CreateUserForm(request.POST)
