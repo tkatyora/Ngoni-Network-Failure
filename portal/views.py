@@ -9,14 +9,14 @@ users = NetworkProfile.objects.all().filter()
 @login_required(login_url='sign_in')
 def dashboard(request):
     content ={}
-    content ={
+    content = {
         'networkuser':users
    
     }  
     return render(request , 'Portal/mainDashboard.html',content)
 @login_required(login_url='sign_in')
 def NetworkPrediction(request):
-    newdata_set = pd.read_csv('prediction.csv')
+    newdata_set = pd.read_csv('PredictionModel/prediction.csv')
     plt.xlabel('X-axis label')
     plt.ylabel('Y-axis label')
     plt.title('Network Prediction')
