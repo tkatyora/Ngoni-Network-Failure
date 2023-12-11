@@ -17,44 +17,56 @@
             </span>
             <h4 class="lead heading text-danger">NB: Please Update Your Prolile  </h4>
            {% for profile in profiles%}
-           {{profile}}
-            <h2 class="lead mt-3 text-info">Welcome <strong>
-              {% if data.gender == 'male'%} Mr {% elif data.gender == 'female' %}  Miss {% else %}{% endif %}
-              {{data.user.first_name.title}} 
-              Mr {{user.last_name.title}}</strong> Below is Your Personal and Account  Information</h2>
+          {% if profile.user.username == user.username%}
+            <h2 class="lead mt-3 text-warning">Welcome <strong>
+              {{user.first_name.title}} 
             
-                <div class="row container align-content-between  p-4 g-5">
-                  <div class="col-6  shadow">
-                    <h2 class="h4 mt-3 ">Personal Information</h2>
+          {% if profile.Service == 'customer'%}
+          </strong> Below is Company and Network  Information</h2>
+          {%else%}
+        </strong> Below is Company   Information</h2>
+           {%endif%}
+                
+                <div class="row container align-content-between ms-5  p-4 g-5">
+                  <div class="col-8 shadow ms-5">
+                    <h2 class="h4 mt-3 ">Compnay Information</h2>
                     <hr>
                     <p>{{data}}</p>
-                    <p class="lead">Account Owner : {{user.first_name.title}}  {{user.last_name.title}} </p>
-                      <p class="lead">Email : {{data.user.email}}</p>
-                      <p class="lead">Addrees  : {{data.address}}</p>
-                      <p class="lead">City : {{data.city}}</p>
-                      <p class="lead">Gender :{{data.gender}}</p>
-                      <p class="lead">PhoneNumber : {{data.phoneNumber}}</p>
-                      <p></p>
+                    <p class="lead">Company Name: {{profile.user.first_name.title}} </p>
+                    <p class="lead">UserName: {{profile.user.username.title}} </p>
+                    <p class="lead">Service Type: {{profile.Service}} </p>
+                      <p class="lead">Email : {{profile.user.email}}</p>
+                      <p class="lead">Addrees  : {{profile.address}}</p>
+                      <p class="lead">City : {{profile.city}}</p>
+                      <p class="lead">PhoneNumber : {{profile.phoneNumber}}</p>
+                     
+                      <p class="lead">Last LogIn :{{user.last_login}}</p>
+                      <p class="lead">Date Joined :{{user.date_joined}}</p>
+                      
                   </div>
-                  <div class="col-6  shadow ">
-                    <h2 class="h4 mt-3 ">Account Information</h2>
+                  {%if profile.Service == 'customer' or user.is_superuser%}
+                  
+                  <div class="col-8  shadow ms-5">
+                    <h2 class="h4 mt-3 ">Network Infomation</h2>
                     <hr>
-                      <p class="lead">Username : {{data.user.username}}</p>
-                      <p class="lead">Account Number: {{data.accountNumber}}</p>
-                      <p class="lead">Password :To be Displayed</p>
-                      <p class="lead">Role
-                      {% if data.isFarmer %}: Farmer {% elif data.isadmin%} : Admin {% elif data.isGeneralUser %}
-                      : General User</p>{% endif %}
-                      <p class="lead">Last LogIn :{{data.user.last_login}}</p>
-                      <p class="lead">Date Joined :{{data.user.date_joined}}</p>
+                      <p class="lead">Network Type : {{profile.Network}}</p>
+                      <p class="lead">Capacity(Bandwidth) :{{profile.capacity}}</p>
+                      <p class="lead"> IP Address :{{profile.IPAddress}}</p>
+                      <p class="lead">Account /Network Number : {{profile.accountNumber}}</p>
                   </div>
+                  {%endif%}
+                  <div class="text-start ms-5">
+                    <button class="text-center btn btn-sm ms-5 btn-outline-info"><a class="nav-link p-0 text-muted" href="{% url 'dashboard'%}">Back To Main dashboard</a></button>
+                    <button class="text-center btn btn-sm btn-outline-info"><a class="nav-link p-0 text-muted" href="">Delete Account</a></button>
+                    <button class="text-center btn btn-sm btn-outline-info"><a class="nav-link p-0 text-muted" href="">Update Account</a></button>
+                   </div> 
+                 
                 </div>
+            
+                {%endif%}
                 {%endfor%}   
-          <div class="text-center button-user">
-            <button type="submit" class="btn mt-3 btn-secondary  button mb-4">
-              <a class href="{% url 'dashboard'%}">Back</a>
-            </button>
-          </div>
+
+         
      </section>
 
   </main>
