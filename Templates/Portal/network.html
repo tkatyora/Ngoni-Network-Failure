@@ -10,7 +10,7 @@
     Such as Free Blog Hosting abd Teaching Learners Web Development"
   />
 {% block title%}
-    <title>Telone |Prediction</title>
+    <title>Telone |Network Perfomance</title>
 {%endblock title%}
 </head>
 
@@ -33,21 +33,43 @@
         </div>
       </div>
   </main>
-          <div class=" text-start mt-1"
-          >
-          <br>
-              <div class=" text-center">
-                <h5  class=" text-info">Prediction</h5>
-                  
-              </div>
-           {{predictions}}
-              
-             <br>
-           <div class="text-center">
-            <button class="text-center btn btn-sm btn-outline-info"><a class="nav-link p-0 text-muted" href="{% url 'dashboard'%}">Back To Main dashboard</a></button>
-            <button class="text-center btn btn-sm btn-outline-info"><a class="nav-link p-0 text-muted" href="">Delete</a></button>
-           </div> 
-          </div>
+  <div class=" text-start mt-1"
+  >
+  <br>
+      <div class=" text-center">
+        <h5  class=" text-info"> All Documents and Templates</h5>
+         
+      </div>
+     
+   
+<table class="table table-bordered table-striped table-sm">
+  <thead>
+
+    <tr class="bg-success">
+    
+      <th scope="col">Normal Network</th>
+      <th scope="col">Slow Network</th>
+      <th scope="col">Failure</th>
+       
+    
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr >
+      <td  ><a class="text-info nav-link navs-link fs-6" href=""></a></td>
+      <td ></td>
+     
+    </tr>
+ 
+  </tbody>
+</table>
+     
+   <div>
+    <button class="text-center btn btn-sm btn-outline-info"><a class="nav-link p-0 text-muted" href="{% url 'dashboard'%}">Back To Main dashboard</a></button>
+    <button class="text-center btn btn-sm btn-outline-info"><a class="nav-link p-0 text-muted" href="{% url 'AddDocuments'%}">Add The Docunent</a></button>
+   </div> 
+  </div>
 
 
  </main>
