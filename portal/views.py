@@ -34,18 +34,8 @@ def NetworkPrediction(request):
 
 @login_required(login_url='sign_in')
 def NetworkPerfomance(request):
-    newdata_set = pd.read_csv('PredictionModel/prediction.csv')
-    plt.xlabel('X-axis label')
-    plt.ylabel('Y-axis label')
-    plt.title('Network Prediction')
-    newdata_set.plot(color='red', linestyle='--')
-    prediction =plt.show()
-    # with open(prediction, 'r') as f:
-    #     reader = csv.reader(f)
-    #     data = reader
     content ={}
     content ={
-        'predictions':prediction
-   
+        
     }  
-    return render(request , 'Portal/Prediction.html',content)
+    return render(request , 'Portal/Perfomance.html',content)
