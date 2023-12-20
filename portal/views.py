@@ -31,3 +31,11 @@ def NetworkPrediction(request):
    
     }  
     return render(request , 'Portal/Prediction.html',content)
+
+@login_required(login_url='sign_in')
+def NetworkPerfomance(request):
+    content ={}
+    content ={
+        
+    }  
+    return render(request , 'Portal/Perfomance.html',content)
