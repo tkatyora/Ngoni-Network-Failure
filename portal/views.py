@@ -1,9 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from account.models import *
+from .models import Feedback_Complains
 from django.contrib.auth.decorators import login_required
 import csv
 import pandas as pd
 import matplotlib.pyplot as plt
+from .forms import Feedback_ComplainsForm
+from django.contrib import messages
 # Create your views here.
 users = NetworkProfile.objects.all().filter()
 @login_required(login_url='sign_in')
@@ -39,3 +42,31 @@ def NetworkPerfomance(request):
         
     }  
     return render(request , 'Portal/Perfomance.html',content)
+
+
+#Complains and Feedbacks 
+@login_required(login_url='sign_in')
+def AddFedComp(request):
+    if request.method == 'POST':
+        form = Feedback_ComplainsForm(request.POST)
+        if form.is_valid():
+            form.save(commit=False)
+            fedcomp = form.save(commit=False)
+            fedcomp.created_by = request.user
+            fedcomp.save()
+            form.save()
+            mesage= f'Fedback added succesfully'
+            messages.success(request,mesage)
+            return redirect('addFed')   
+        else:
+            messages.warning(request, 'Sorry Feedback not added succesfully')
+    else:
+        form = Feedback_ComplainsForm()
+    content = {}
+    content = {
+        'form': form,
+
+    }  
+ 
+    return render(request , 'Portal/AddFedComp.html',content)
+

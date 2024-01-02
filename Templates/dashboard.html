@@ -118,17 +118,18 @@
             <ul class="nav flex-column">
               <li class="nav-item ">
                 {%if users.Service == 'Admin' or user.is_superuser%}
-                <a class="nav-link " href="https://docs.google.com/spreadsheets/d/10Sn2sktMi2h3AAVZEQxKjZ0aTvrGIWslI8G_AfQADmo/edit#gid=1469839642" target="_blank" rel="noopener noreferrer">
+                <a class="nav-link " href="{%url 'addFed' %}" target="_blank" rel="noopener noreferrer">
                  View Clinets Feedback and Complains
                  </a>
                  {%endif%}
                  {%if users.Service == 'customer' or user.is_superuser%}
-                 <a class="nav-link " href="https://docs.google.com/spreadsheets/d/10Sn2sktMi2h3AAVZEQxKjZ0aTvrGIWslI8G_AfQADmo/edit#gid=150340438"  target="_blank" rel="noopener noreferrer">
-                  Add Complian
+                 <a class="nav-link " href="{%url 'addFed' %}"  target="_blank" rel="noopener noreferrer">
+                  Add Complian or Complain
                  </a> 
-                 <a class="nav-link " href="https://docs.google.com/spreadsheets/d/10Sn2sktMi2h3AAVZEQxKjZ0aTvrGIWslI8G_AfQADmo/edit#gid=526017449"  target="_blank" rel="noopener noreferrer">
-                  Add Feedback
-                 </a> 
+                 <a class="nav-link " href="{%url 'addFed' %}"  target="_blank" rel="noopener noreferrer">
+                 View
+                 </a>
+                 
                  {%endif%}
               </li>
             </ul>

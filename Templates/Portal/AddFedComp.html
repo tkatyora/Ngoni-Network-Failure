@@ -4,12 +4,12 @@
  {% load crispy_forms_tags %}
 {% block title%}
 <head>
-  <meta name="Key Words" content="Web Development, Free Blog Hosting,Static Websites,Web Application" />
+  <meta name="Key Words" content="Web Application" />
   <meta
     name="description"
     content="This page is creating new Detailed Discription of  services including service type and price aswell as functinality"
   />
-    <title>National Implementation | Add Document</title>
+    <title>Telone | Add Document</title>
 {%endblock title%}
 </head>
 <body>
@@ -20,7 +20,7 @@
     {% csrf_token %}
     <br />
     <div class="message mt-3 text-center">
-      <h5 class="text-center">Add The Documents </h5>
+      <h5 class="text-center">Add Complain </h5>
     </div> 
     {% for message in messages %} 
     <div class="error-class">
@@ -34,15 +34,13 @@
     <br />
     <div class=" text-start mx-sm-5">
        <p class="lead mt-3">
-        <strong>{{form.File|as_crispy_field}}</strong> 
+        <strong>{{form.type|as_crispy_field}}</strong> 
       </p>
       
        <p class="lead mt-3">
-        <strong>{{form.Name|as_crispy_field}}</strong> 
+        <strong>{{form.body|as_crispy_field}}</strong> 
       </p>
-     <p class="lead mt-3">
-        <strong>{{form.Discription|as_crispy_field}}</strong> 
-      </p>
+     
     </div>
   </br>
     <div class="text-center mb-5">
