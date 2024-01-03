@@ -9,6 +9,7 @@ from .forms import Feedback_ComplainsForm
 from django.contrib import messages
 # Create your views here.
 users = NetworkProfile.objects.all().filter()
+fedcomp = Feedback_Complains.objects.all()
 @login_required(login_url='sign_in')
 def dashboard(request):
     content ={}
@@ -69,4 +70,13 @@ def AddFedComp(request):
     }  
  
     return render(request , 'Portal/AddFedComp.html',content)
+
+@login_required(login_url='sign_in')
+def ViewFedComp(request):
+    content ={}
+    content ={
+        'fedcomp': fedcomp
+    }  
+    return render(request , 'Portal/ViewComp.html',content)
+
 

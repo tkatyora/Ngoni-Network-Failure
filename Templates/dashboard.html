@@ -118,7 +118,7 @@
             <ul class="nav flex-column">
               <li class="nav-item ">
                 {%if users.Service == 'Admin' or user.is_superuser%}
-                <a class="nav-link " href="{%url 'addFed' %}" target="_blank" rel="noopener noreferrer">
+                <a class="nav-link " href="{%url 'ViewComp' %} " target="_blank" rel="noopener noreferrer">
                  View Clinets Feedback and Complains
                  </a>
                  {%endif%}
@@ -176,7 +176,10 @@
               <span data-feather="file" class=" text-black align-text-bottom"></span>
             Change Password
             </a>  
-            <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>      
+            <a class="nav-link " href="{% url 'logout' %}">
+              <span data-feather="file" class=" text-black align-text-bottom"></span>
+              Log out
+            </a>     
           </li>
           
         </ul>

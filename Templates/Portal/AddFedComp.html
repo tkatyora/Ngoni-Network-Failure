@@ -23,11 +23,11 @@
       <h5 class="text-center">Add Complain </h5>
     </div> 
     {% for message in messages %} 
-    <div class="error-class">
+    <div class="">
        {% if message.tags == 'warning'%}
-          <p class="text-danger">{{message}}</p>
+          <p class="text-danger text-center">{{message}}</p>
        {% elif message.tags == 'success'%}
-        <p class="text-success">{{message}}</p>
+        <p class="text-success text-center">{{message}}</p>
     </div>
     {%endif%}
      {%endfor%}
