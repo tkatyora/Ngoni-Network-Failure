@@ -45,7 +45,8 @@ def NetworkPerfomance(request):
     return render(request , 'Portal/Perfomance.html',content)
 
 
-#Complains and Feedbacks 
+#------------------------------------------------Code Block Responsible for CRUD OPERATIONS Of Complains and Feedbacks--------------------------------------- 
+#3.1 CREATING FEDCOMP
 @login_required(login_url='sign_in')
 def AddFedComp(request):
     if request.method == 'POST':
@@ -70,7 +71,7 @@ def AddFedComp(request):
     }  
  
     return render(request , 'Portal/AddFedComp.html',content)
-
+#3.2 VIEWFEDCOMP (READ)
 @login_required(login_url='sign_in')
 def ViewFedComp(request):
     content ={}
@@ -78,5 +79,27 @@ def ViewFedComp(request):
         'fedcomp': fedcomp
     }  
     return render(request , 'Portal/ViewComp.html',content)
+
+#3.3 UPDATE FEDCOMP
+@login_required(login_url='sign_in') 
+def updateFedComp(request, pk):
+    e36_to_update = Quotation.objects.get(id=pk)  # Querry out the Services which much be updated
+    if request.method == 'POST':
+        form = addQouteForm(request.POST,request.FILES, instance=e36_to_update)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'E36 updated succesfully')
+            return redirect('viewMyE36')
+        else:
+            messages.warning(request, 'Sorry E36 not updated ')
+    else:
+        form = addQouteForm(instance=e36_to_update)
+    content = {}
+    content = {
+        'form':  form,
+        'E36Update': e36_to_update
+
+    }
+    return render(request, 'updateE36.html', content)
 
 

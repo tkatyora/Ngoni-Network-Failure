@@ -67,12 +67,12 @@
               <td >Feedback have no replies</td>
               <td >Feedback has No time of Reply</td>
               {%endif%}
-            
+              {%if data.type == 'Complain'%}
               <td ><button
                  class="text-center btn btn-sm btn-outline-info">
                 <a class="nav-link p-0 text-muted" href="">Reply</a>
               </button></td>
-              
+              {%endif%}
             </tr>
             {%endfor%} 
           </tbody>
