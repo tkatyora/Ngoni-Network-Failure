@@ -83,23 +83,23 @@ def ViewFedComp(request):
 #3.3 UPDATE FEDCOMP
 @login_required(login_url='sign_in') 
 def updateFedComp(request, pk):
-    e36_to_update = Quotation.objects.get(id=pk)  # Querry out the Services which much be updated
+    fedcomp_to_update = fedcomp.objects.get(id=pk)  
     if request.method == 'POST':
-        form = addQouteForm(request.POST,request.FILES, instance=e36_to_update)
+        form = Feedback_ComplainsForm(request.POST, instance=fedcomp_to_update)
         if form.is_valid():
             form.save()
-            messages.success(request, 'E36 updated succesfully')
-            return redirect('viewMyE36')
+            messages.success(request, 'Reply updated succesfully')
+            
         else:
-            messages.warning(request, 'Sorry E36 not updated ')
+            messages.warning(request, 'Sorry Reply Failled')
     else:
-        form = addQouteForm(instance=e36_to_update)
+        form = Feedback_ComplainsForm(instance=e36_to_update)
     content = {}
     content = {
         'form':  form,
-        'E36Update': e36_to_update
+        'fedCompUpdate': fedcomp_to_update
 
     }
-    return render(request, 'updateE36.html', content)
+    return render(request, 'fedCompUpdate.html', content)
 
 
