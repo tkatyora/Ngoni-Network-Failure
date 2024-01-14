@@ -17,3 +17,16 @@ class Feedback_Complains(models.Model):
 
     class meta:
         ordering = ('-created',)
+
+class recomandations(models.Model):
+    Type = [('1','Level1'),('2','Level2'),('3','Level3'),('4','Level4')]
+    type = models.CharField(max_length=50,null=True,blank=False,choices = Type)
+    body = models.TextField(null=True,blank=True)
+    created = models.DateTimeField( auto_now=True, auto_now_add=False ,null=True)
+    updated = models.DateTimeField(null=True,auto_now=False,auto_now_add=True)
+
+    def __str__(self):
+        return f'Recomdation of Level { str(self.type)}'
+
+    class meta:
+        ordering = ('-created',)

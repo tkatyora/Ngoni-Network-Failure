@@ -10,9 +10,9 @@
 {%endblock title%}
 
 <body>
-<main class="col-md-9 col-lg-10 align-content-center px-md-4"
-     style="width: 75%">
-    <section class="text-start my-2 mx-sm-5">
+<main class="col-md-9 col-lg-10 align-content-center bg-info px-md-4"
+     style="width: 75%">             
+    <section class="text-start my-2  mx-sm-5">
       <br>
        
     <div class="mt-5 ">
@@ -23,19 +23,24 @@
                 </div>
               {%endif%} 
               {%endfor%}
-      <h3 class="text-center lead fs-3">Welcome <span class="h3">{{user.first_name.title}} </span> <span  class="h3">{{user.last_name.title}} </span> To <br> <span class="text-info">System</span> <span class="text-warning">Name</span> </h3>
-      <br>
-       <br>
-        <br>
-      <h5>This Application is to help you To:</h3>
-      <ul class="text-small ">
-        <li>Help 1</li>
-        
-      </ul>
-      <p class="fst-italic fw-bolder">Feel Free To stipulate any faults and inconvenience caused by this application to 0773735227</p>
-      <h6>Enjoy Using This Application ,your Feedback is Greatly Appreciated</h3>
+              <br>
+              <br><br><br> <br>
+              <div class="text-center">
+                <h3 class=" fw-bold h3 fs-3">Good Day
+                   <span class="text-warning">{{user.first_name.title}}  {{user.last_name.title}}
+                   </span>
+                </h3>
+               <br>
+                <br>
+                 
+               <h3 class="text">Welcome  to Telone <BR></BR>
+                 <span class=""> Network Management System(NMS)</span>
+                </h3> 
+               
+              </div>
+    
     </div>    
-</section>
+</section> 
 
 </main>
   

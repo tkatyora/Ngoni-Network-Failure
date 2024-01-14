@@ -103,3 +103,14 @@ def updateFedComp(request, pk):
     return render(request, 'fedCompUpdate.html', content)
 
 
+
+#---------------------------------------------------CODE FOR RECOMANDATIONS---------------------------------------
+
+#4.1 READ 
+@login_required(login_url='sign_in')
+def Recomandation(request):
+    content ={}
+    content ={
+        'recomand': users
+    }  
+    return render(request , 'Portal/recomandation.html',content)
