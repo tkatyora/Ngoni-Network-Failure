@@ -69,8 +69,8 @@ def AddFedComp(request):
         'form': form,
 
     }  
- 
     return render(request , 'Portal/AddFedComp.html',content)
+
 #3.2 VIEWFEDCOMP (READ)
 @login_required(login_url='sign_in')
 def ViewFedComp(request):

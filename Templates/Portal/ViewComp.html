@@ -1,4 +1,4 @@
-{% extends 'dashboard.html' %}
+{% extends 'other.html' %}
  {%block content%} 
  {%load static%}
  {% load crispy_forms_tags %}
@@ -13,78 +13,82 @@
 {%endblock title%}
 </head>
 
-<body>
-<main class="col-md-9 col-lg-10 align-content-center px-md-4"
-     style="width: 75%">
-     <main class="col-md-9  col-lg-10 px-md-4">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Dashboard</h1>
-      </div>
-  </main>
-          <div class=" text-start mt-1"
-          >
-          <br>
-              <div class=" text-center">
-                <h5  class=" text-info"> All Complians and Feedbacks</h5>
-                 
-              </div>
+<body class="">
+  <main class="mt-5 mx-5 fs-5" >
+    <div class=" text-center">
+      <h5  class=""> View All Complians and Feedbacks</h5>   
+      <hr>
+      <br>
+    </div>                                   
+    <div class="  row g-5"> 
+                                    {% for data  in fedcomp %}
+                                    
+                                    {%if data.created_by.username == user.username or user.is_staff %} 
+      <div class="col-4">
+        <div class="p-4 border shadow bg-light">
+                                             {%if data.type == 'Complain'%}
+          <p class=" text-start"> <strong class="text-warning"> {{data.type}}</strong> 
+            : {{data.created_by.first_name.title}} 
+            {%endif%}
+            {%if data.type == 'Complain'%}
+            <p >
+          </p>
+                                            {%else%}
+          <p class=" text-end"> <strong class="text-success"> {{data.type}}</strong>
+            : {{data.created_by.first_name.title}} 
+            {%endif%}
+            {%if data.type == 'Complain'%} </p>
+                                            {%endif%}
+          <p >{{data.body}} <br>
+            <span class="text-secondary">@{{data.created}} </span></p>
+            {%if data.type == 'Complain'%} 
+          <div class="fw-bold text-end">
+            <h5 class="text-end text-warning ">Reply</h5>
+                                      {%if data.reply == 'None' or   data.created == data.updated %}
+            <p class="text-danger fs-6 text-end" >
+      
+                                              {%if data.created_by.username == user.username %} 
+                                              
+                There is No reply yet
+                                              {%else%}
              
-           
-        <table class="table table-bordered table-striped table-sm">
-          <thead>
-
-            <tr class="bg-success">
-            
-              <th scope="col">Customer Name</th>
-              <th scope="col">Type</th>
-              <th scope="col">Description</th>
-              <th scope="col">Time Received</th>
-              <th scope="col">Reply</th>
-              <th scope="col">Time Replied</th>
-               
-            
-            </tr>
-          </thead>
-          <tbody>
-            {% for data  in fedcomp %}
-            <tr >
-              <td  ><a class="text-info nav-link navs-link fs-6" href="">{{data.created_by.first_name.title}}</a></td>
-              <td >{{data.type}}</td>
-              <td >{{data.body}}</td>
-              <td >{{data.created}}</td>
-              {%if data.type == 'Complain'%}
-              {%if data.reply == 'None'%}
-              <td class="text-danger" >You have not Replied to this Complain</td>
-              {%else%}
-              <td >{{data.reply}}</td>
-              {%endif%}
-              {%if data.created == data.updated %}
-                <td >There is No reply yet</td>
-              {%else%}
-                <td >{{data.updated}}</td>
-                {%endif%}
-              {%else%}
-              <td >Feedback have no replies</td>
-              <td >Feedback has No time of Reply</td>
-              {%endif%}
-              {%if data.type == 'Complain'%}
-              <td ><button
-                 class="text-center btn btn-sm btn-outline-info">
-                <a class="nav-link p-0 text-muted" href="">Reply</a>
-              </button></td>
-              {%endif%}
-            </tr>
-            {%endfor%} 
-          </tbody>
-        </table>
-             
-           <div>
-            <button class="text-center mb-5 btn btn-sm btn-outline-info"><a class="nav-link p-0 text-muted" href="{% url 'dashboard'%}">Back To Main dashboard</a></button>
-            <br/> 
-           </div> 
+              You have not Replied to this Complain
+            </p>
+                                              {%endif%}
+                                     {%else%}
+            <p > hi{{data.reply}} <br>
+                @{{data.updated}}</p>
+                                    {%endif%}
+                                    {%if user.is_staff%}
+           <button
+               class="text-center btn btn-sm btn-outline-info">
+              <a class="nav-link p-0 text-muted" href="">Reply</a>
+            </button></p>
+            {%endif%}
           </div>
+          {%else%}
+          <br>
+          <br>
+          <br>
+          <br>
+          {%endif%} 
+        </tr>
+        </div>
+      </div>                         
+   
+                                        {%endif%} 
+                                      
+                                        {%endfor%}
+          
+             <div>
+              <button class="text-center mb-5 btn btn-sm btn-outline-info"><a class="nav-link p-0 text-muted" href="{% url 'dashboard'%}">Back To Main dashboard</a></button>
+              <br/> 
+             </div> 
+            </div>
+  
+  
+  </main>
 
 
- </main>
 </body>
 {%endblock content%}
